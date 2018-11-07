@@ -1,0 +1,76 @@
+<?php
+				$login = $_POST['username'];
+				$email = $_POST['email'];
+				$password = $_POST['password'];
+				$hashedpassword = hash("whirlpool", $password);
+				$storedpassword = hash('md5', $login);
+				$authonticatedPass = false;
+				$authonticatedname = false;
+				if (isset($login) && isset($email) && isset($password) && !empty($login) && !empty($email) && !empty($password))
+				{
+                    $pattern = "?~`=-',|";
+					for ($i = 0; $i < iconv_strlen($pattern); $i++)
+					{
+						//Check password conditions
+						if (iconv_strlen($password) > 5)
+							$passPass = true;							
+						//Check Username for invaild chars
+						if (strpos($username, $pattern[$i]))
+							$usernamePass = true;		
+                    }
+                    
+					if ($authonticatedpass === false)
+						echo 'Invalid login';
+					if ($authonticatedname)
+						echo 'Invalid Username';
+					if ($authonticatedpass && $authonticatedname ===false)
+					{
+						if (filter_var($email, FILTER_VALIDATE_EMAIL))
+						{
+							$checker = true;
+             				//form submitted with correct email format
+                            
+							//Username already exists?
+							$user_found = $conn->query("SELECT USERNAME FROM users");
+							foreach($user_found as $user_details)
+							{
+								if ($user_details['USERNAME'] == $login)
+								{
+									echo "Username already in use";
+									$checker = false;
+								}
+                            }
+                            
+							//Check if email alrady exists?
+							$email_found = $conn->query("SELECT EMAIL FROM users");
+							foreach($email_found as $user_email)
+							{
+								if ($user_email['EMAIL'] == $email)
+								{
+										echo "E-Mail already used";
+										$checker = false;
+								}
+							}
+							if ($checker)
+							{
+
+							//add the person to to DB
+							$populate = $conn->prepare("INSERT INTO users (username, email, pssword)
+							VALUES(:username, :email, :pssword)");
+							$populate->bindParam(":username", $login);
+							$populate->bindParam(":email", $email);
+							$populate->bindParam(":pssword", $pass);
+							$populate->execute();
+							// $subject = "cAmAgru | Activation";
+							// $message = " ";
+							// $head = 'From:registration@camagru' . "\r\n";
+							// mail($email, $subject, $message, $head);
+							echo "Please verify your account by clicking the link sent to $email";
+							die();
+							}
+						}
+						else
+							echo "Invalid E-Mail";
+					}
+				}
+				?>

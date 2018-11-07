@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta name = "viewport" content= "width = device-width, initial-scale = 1.0">
+		<meta name = "viewport" content = "height = device-height, initial-scale = 1.0">
+		<title> Camagru | Login </title>
+	</head>
+	<body>
+	<div>
+			<form class="form" id="signin" action="index.php" method="POST" >
+			<div class="ntha">
+				<?php
+				session_start();
+				$login = $_POST['username'];
+				$password = $_POST['password'];
+				$stored_pass = hash("whirlpool", $password);
+				if ($login && $password)
+				{
+					$hone = false;
+					//Find Username nga sql
+					//sql to find in the database
+					foreach ($user_found as $user_row)
+					{
+						if ($user_row['USERNAME'] = $login)
+						{
+							$hone = true;
+							//db_pass i dovha variable ya sql yashu yo wanna password ya user.
+							foreach ($db_pass as $datap)
+							{
+								if ($datapt['PASSWORD'] == $stored_pass)
+								{
+									$_SESSION['loggedin']  = true;
+									$_SESSION['username'] = $username;
+									
+								}
+								else
+								{
+									echo "Incorrect password<br>";
+								}
+		 	                 }
+						}
+					}
+					if ($hone == false)
+					{
+						echo "No such user<br>";
+					}
+				}
+				else
+				{
+				}
+			?>
+	</div>
+	<h2><input class="inp" type="text" name="username" placeholder="Username"> </h2>
+	<h2><input class="inp" type="password" name="password" placeholder="Type password"></h2>
+	<input class="allButs" id="login" type="submit" value="Login">
+	<ul>
+				<div class="allButs" id="ulbuts1">
+					<a href="/registration.php">
+						<li class="button">Register</li>
+					</a>
+				</div>
+				<div class="allButs" id="ulbuts2">
+					<a href="/reset.php">
+						<li class="button">Reset Password</li>
+					</a>
+				</div>
+			</ul>
+			</form>
+	</div>
+	</body>
+</html>

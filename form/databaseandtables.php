@@ -1,0 +1,50 @@
+<?php
+//connect to server
+$servername = "localhost";
+$username = "root";
+$password = "123456";
+$dbname = "camagru";
+$tablename = "users";
+	
+//create database	
+	try {
+		$conn = new PDO("mysql:host=$servername", $username, $password);
+		// set the PDO error mode to exception
+		$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+		$sql = "CREATE DATABASE $dbname";
+		// use exec() because no results are returned
+		$conn->exec($sql);
+		echo "Database created successfully $dbname<br>";
+		}
+	catch(PDOException $e)
+		{
+		echo $sql . "<br>" . $e->getMessage();
+		}
+
+// create table
+try {
+
+    $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
+
+	// set the PDO error mode to exception
+    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+    // sql to create table
+    $sql = "CREATE TABLE $tablename (
+    userID INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY, 
+    username VARCHAR(30) NOT NULL,
+    email VARCHAR(30) NOT NULL,
+	userPassword VARCHAR(56),  
+	activated INT(1)
+    )";
+
+    // use exec() because no results are returned
+    $conn->exec($sql);
+    echo"$tablename created successfully";
+    }
+catch(PDOException $e)
+    {
+    echo $sql . "<br>" . $e->getMessage();
+    }
+	$conn = null;
+?>
