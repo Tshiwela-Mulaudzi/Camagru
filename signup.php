@@ -11,15 +11,15 @@
     <div class="notice">
 				
 			</div>
-        <input class="inp" type="text" id="username" name="username" placeholder="Username" required>
-	    <input class="inp" type="email" id="email" name="email" placeholder="E-Mail address" required>
-	    <input class="inp" type="password" id="password" name="password" placeholder="Password"required>
-	    <input class="inp" type="password" id="password_c" name="password_c" placeholder="Confirm Password" required>
+        <h2><input class="inp" type="text" id="username" name="username" placeholder="Username" required></h2>
+	    <h2><input class="inp" type="email" id="email" name="email" placeholder="E-Mail address" required></h2>
+	    <h2><input class="inp" type="password" id="password" name="password" placeholder="Password"required></h2>
+	    <h2><input class="inp" type="password" id="password2" name="password2" placeholder="Confirm Password" required></h2>
         <div id = "Password_checker">
             <!--<div class = "figure" id = "length">At least 8 characters</div>
             //<div class = "figure" id = "confirm"> Confirm your password</div>-->
         </div>
-        <input class = "allButs" id = "registration" type = "Submit" value = "Register">
+        <input class = "allButs" id = "registration" type = "Submit" value = "Register" disabled>
     </form>
 </div>
 <script>
