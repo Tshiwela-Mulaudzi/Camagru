@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-//shoud i have a logout button.
+//shoud i have a logout button?.
 <?php
 session_start();
 if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true)

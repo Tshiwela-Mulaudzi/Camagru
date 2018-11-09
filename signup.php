@@ -4,6 +4,7 @@
     <meta name = "viewport" content = "width = device-width, initial-scale = 1.0">
     <meta name = "viewport" content = "height = device-height, initial-scale = 1.0">
     <title> Camagru | Registartion </title>
+    <link href="./form/main.css" rel="stylesheet">
 </head>
 <body>
 <div>
@@ -19,7 +20,7 @@
             <!--<div class = "figure" id = "length">At least 8 characters</div>
             //<div class = "figure" id = "confirm"> Confirm your password</div>-->
         </div>
-        <input class = "allButs" id = "registration" type = "Submit" value = "Register" disabled>
+        <input class = "allButs" id = "registration" type = "Submit" value = "Register">
     </form>
 </div>
 <script>
