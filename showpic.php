@@ -7,64 +7,70 @@
     is anything even showing?.
 </head>
 <body>
-    <div id = "logout"><a href = "Telling you, there is a page here">
+    <div id = "logout"><a href = "http://127.0.0.1:8080/Camagru/index0.php">Log out</a></div>
     <div id = "recent pictures">
         <video autoplay = "true" id = "vid"></video>
         <canvas id = "canv"> </canvas>
         <div id = "right">
             <div id = "toprow">
-                <img class = "pics" id = "pic0" onclick="selectPic('pic0')" src="./images/dzina.ping"/>
-                <img class = "pics" id = "pic1" onclick="selectPic('pic1')" src="./images/dzina.ping"/>
-                <img class = "pics" id = "pic2" onclick="selectPic('pic2')" src="./images/dzina.ping"/>
-                <img class = "pics" id = "pic3" onclick="selectPic('pic3')" src="./images/dzina.ping"/>
+                <img class = "pics" id = "pic0" onclick="selectPic('pic0')" src="./images/image0"/>
+                <img class = "pics" id = "pic1" onclick="selectPic('pic1')" src="./images/image1"/>
+                <img class = "pics" id = "pic2" onclick="selectPic('pic2')" src="./images/image2"/>
+                <img class = "pics" id = "pic3" onclick="selectPic('pic3')" src="./images/image3"/>
             </div>
              <div id = "bottomrow">
-                <img class = "pics" id = "pic4" onclick="selectPic('pic4')" src="./images/dzina.ping"/>
-                <img class = "pics" id = "pic5" onclick="selectPic('pic5')" src="./images/dzina.ping"/>
-                <img class = "pics" id = "pic6" onclick="selectPic('pic6')" src="./images/dzina.ping"/>
-                <img class = "pics" id = "pic7" onclick="selectPic('pic7')" src="./images/dzina.ping"/>
+                <img class = "pics" id = "pic4" onclick="selectPic('pic4')" src="./images/image4"/>
+                <img class = "pics" id = "pic5" onclick="selectPic('pic5')" src="./images/image5"/>
+                <img class = "pics" id = "pic6" onclick="selectPic('pic6')" src="./images/image6"/>
+                <img class = "pics" id = "pic7" onclick="selectPic('pic7')" src="./images/image7"/>
             </div>
         </div>
+    </div>
+    <div id = "belowpics">
+        <button class = "allButs" id = "capture" onclick = "takepic()"> Take picture </button>
+    </div>
+    <div id = "belowcapture">
+        <input id = "upload" type = "file" accept = "image/*" capture/>
     </div>
     <script>
         var picselected;
 
         var p0 = new image();
         p0.setAttribute('crossOrigin', 'anonymous');
-        p0.src = "./images/dzina.png";
+        p0.src = "./images/image0";
 
         var p1 = new image();
         p1.setAttribute('crossOrigin', 'anonymous');
-        p1.src = "./images/dzina.png";
+        p1.src = "./images/image1";
 
         var p2 = new image();
         p2.setAttribute('crossOrigin', 'anonymous');
-        p2.src = "./images/dzina.png";
+        p2.src = "./images/image2";
 
         var p3 = new image();
         p3.setAttribute('crossOrigin', 'anonymous');
-        p3.src = "./images/dzina.png";
+        p3.src = "./images/image3";
 
         var p4 = new image();
         p4.setAttribute('crossOrigin', 'anonymous');
-        p4.src = "./images/dzina.png";
+        p4.src = "./images/image4";
 
         var p5 = new image();
         p5.setAttribute('crossOrigin', 'anonymous');
-        p5.src = "./images/dzina.png";
+        p5.src = "./images/image5";
 
         var p6 = new image();
         p6.setAttribute('crossOrigin', 'anonymous');
-        p6.src = "./images/dzina.png";
+        p6.src = "./images/image6";
 
         var p7 = new image();
         p7.setAttribute('crossOrigin', 'anonymous');
-        p7.src = "./images/dzina.png";
+        p7.src = "./images/image7";
 
         function selectpicture(num)
         {
             console.log(num);
-            var capture = document.getElementById('snap');
+            var capture = document.getElementById('capture');
             var selected = document.getElementById(num);
             picselected = num;
 
@@ -157,7 +163,7 @@
             canvas.height = h;
         }false);
 
-        function snap()
+        function takepic()
         {
            context.clearRect(0, 0, 400, 360);
            context.drawImage(video, 0, 0, w, h);
@@ -166,19 +172,19 @@
 
             if (picselected == 'pic0')
                 drawpic0();
-            else if (picselected == pic1)
+            else if (picselected == 'pic1')
                 drawpic1();
-            else if (picselected == pic2)
+            else if (picselected == 'pic2'')
                 drawpic2();
-            else if (picselected == pic3)
+            else if (picselected == 'pic3')
                 drawpic3();
-            else if (picselected == pic4)
+            else if (picselected == 'pic4')
                 drawpic4();
-            else if (picselected == pic5)
+            else if (picselected == 'pic5')
                 drawpic5();
-            else if (picselected == pic6)
+            else if (picselected == 'pic6')
                 drawpic6();
-            else if (picselected == pic7)
+            else if (picselected == 'pic7')
                 drawpic7();
         }
 

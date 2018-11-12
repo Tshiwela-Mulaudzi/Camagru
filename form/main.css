@@ -1,7 +1,8 @@
-body
+.body
 {
     font-family: comic sans-serif;
     background-attachment: fixed;
+	background-image			:url(../images/image0.jpeg);
     background-repeat: repeat;
     padding : none;
     margin : 0;
@@ -38,11 +39,11 @@ input[placeholder]
 	text-align					: center;
 }
 
-#login:hover, #registration:hover
+/*#login:hover, #registration:hover
 {
 	color				: plum;
 	background-color	: rgba(7,7,7, 0.4);
-}
+}*/
 
 .allButs
 {
@@ -63,6 +64,40 @@ input[placeholder]
     margin-bottom: 30px;
     margin-right: auto;
 }
+
+#login
+{
+	margin-left: 38px;
+	margin-bottom: 30px;
+}
+
+#logout
+{
+    position: absolute;
+	top: 4%;
+	right: 2%;
+	text-align: center;
+	text-decoration: none;
+	color: black;
+	cursor: default;
+	font-family: "geosans";
+	color:dodgerblue;
+}
+
+#capture
+{
+	font-size: 16px;
+}
+
+.pic
+{
+	margin: none;
+	height: 100%;
+	width: 24%;
+	object-fit: contain;
+	display: inline;
+}
+
 
 
 

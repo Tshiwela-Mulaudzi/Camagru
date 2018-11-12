@@ -9,7 +9,7 @@
 </head>
 <body>
 <div>
-	<form class="form" id="login" action="./form/signinform.php" method="POST" >
+    <form class="form" id="login" action="./form/signinform.php" method="POST" >
     <div class="notice">		
 		</div>
         <input class="inp" type="text" id="username" name="username" placeholder="Username" required>

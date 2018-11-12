@@ -35,34 +35,49 @@ catch(PDOException $e)
 	
 	//add the person to to DB
 
+	
+if (trim(isset($password)) && trim(isset($password2)) && trim(isset($email)) && 
+trim(isset($username)))
+{
+if (strcmp($pssword, $password2) == 0)
+{
 	$populate = $conn->prepare("INSERT INTO $tablename (username, email, userPassword, activated)
-									    VALUES(:username, :email, :pssword, :activated)");
-$populate->bindParam(":username", $login);
-$populate->bindParam(":email", $email);
-$populate->bindParam(":pssword", $pssword);
-$populate->bindParam(":activated", $activated);
-$populate->execute();
+											VALUES(:username, :email, :pssword, :activated)");
+	$populate->bindParam(":username", $login);
+	$populate->bindParam(":email", $email);
+	$populate->bindParam(":pssword", $pssword);
+	$populate->bindParam(":activated", $activated);
+	$populate->execute();
 
-//sending email part
-$subjectline = "Account registration";
-$messagetext = "Hey there!
+	//sending email part
+	$subjectline = "Account registration";
+	$messagetext = "Hey there!
 
-Thank you for registering with camagru.
-Your may log in as:
-Username : ".$login."
-Password : ".$pssword."
+	Thank you for registering with camagru.
+	Your may log in as:
+	Username : ".$login."
+	Password : ".$pssword."
 
-Pleasen activate your acount here
+	Pleasen activate your acount here
 
-Thank you
-Camagru";
+	Thank you
+	Camagru";
 
-$head = 'From registartion@camagru.co.za'."\n\r";
-mail($email, $subjectline, $messagetext, $head);
+	$head = 'From registartion@camagru.co.za'."\n\r";
+	mail($email, $subjectline, $messagetext, $head);
 
-echo "Please activate your account by following steps on your email after registration";
-
-header('Location: http://127.0.0.1:8080/Camagru/index0.php/');
+	echo "Please activate your account by following steps on your email after registration";
+	header('Location: ../index0.php');
+}
+else
+{
+	header('location: ../signup.php');
+}
+}
+else
+{
+	header('location: ../signup.php');
+}
 	}
 	catch(PDOException $e)
     {
@@ -72,6 +87,7 @@ header('Location: http://127.0.0.1:8080/Camagru/index0.php/');
 echo "done";
 $conn = null;
 ?>
+
 <script>
 if ($_POST['password'] != $_POST['password2'])
 {
