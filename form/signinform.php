@@ -36,7 +36,7 @@ $result = $populate->fetch(PDO::FETCH_ASSOC);
     if ($result['username'] === $login && $result['userPassword'] === $pssword) 
     {
         // echo "right password<br>";
-         header('Location: ../showpic.php/');
+         header('Location: ../takeapic.php/');
     }
     else 
     {
