@@ -15,13 +15,17 @@
         <video id = "video">Im not sure what this message is for...</video>
         <button id = "photobutton" class  = "allButs"> Take picture </button>
         <select id = "photofilter">
-           <option value = "none"> No filter</option>
-           <option value = "grayscale(100%"> Grayscale</option>
-           <option value = "blur(10px)"> blur</option>
+           <option value = "none" id = "none"> No filter</option>
+           <option value = "grayscale(100%" id = "Grayscale"> Grayscale</option>
+           <option value = "blur(10px)" id = "blur"> blur</option>
            <option value = "contrast(200%)"> contrast</option>
+           <option value = "contrast(200%)"> contrast</option>
+           <option value = "./images/dog.png"> Christmas frame</option>
+           <option value = "./images/christmas.png"> Cute dog with</option>
+           <option value = "./images/flowers.png"> Flowers frame</option>
         </select>
-        <button id = "clearbutton" class = "allButs"> Clear</button>
-        <canvas id = "canvas"> </canvas>
+        <button id = "clearButton" class = "allButs"> Clear</button>
+        <canvas id = "canvas"></canvas>
     </div>
     <div class = "bottom">
         <div id = "photos">
@@ -39,8 +43,8 @@
         const canvas = document.getElementById('canvas');
         const photos = document.getElementById('photos');
         const photobutton = document.getElementById('photobutton');
-        const clearbutton = document.getElementById('clearbutton');
-        const photofilter = document.getElementById('photofilter');
+        const clearbutton = document.getElementById('clearButton');
+        const photoFilter = document.getElementById('photofilter');
 
         //get media stream
         navigator.mediaDevices.getUserMedia({video:true, audio:false})
@@ -83,10 +87,10 @@
 
 
         //Filter event
-        photofilter.addEventListener('change', function(e)
+        photoFilter.addEventListener('change', function(e)
         {
             //set filter to chosen option
-            const filter = e.target.value;
+            filter = e.target.value;
             //set filter to video
             video.style.filter = filter;
             
@@ -100,14 +104,14 @@
             //clear photo
             photos.innerHTML = '';
 
-            //change filter back to nobne
+            //change filter back to normal
             filter = 'none';
 
             //set video filter
             video.style.filter = filter;
             
             //resety filter, back to none
-            photofilter.selectedIndex = 0;
+            photoFilter.selectedIndex = 0;
         });
 
         //take pic from canvas
@@ -139,7 +143,7 @@
                 img.style.filter = filter;
 
 
-                //append image to photoID
+                //append image to photo
                 photos.appendChild(img);
 
             }
