@@ -8,13 +8,12 @@
     <title>Take picture</title>
 </head>
 <body>
-<div id = "logout"><a href = "http://127.0.0.1:8080/Camagru/index0.php">Log out</a></div>
     <div class = "navbar">
-        <h2> Camagru</h2>
+        <h2> Take a picture/ video</h2>
     </div>
     <div class = "top">
         <video id = "video">Im not sure what this message is for...</video>
-        <button id = "photobutton" class  = "allButs" onclick="video.play()"> Take picture </button>
+        <button id = "photobutton" class  = "allButs"> Take picture </button>
         <select id = "photofilter">
            <option value = "none" id = "none"> No filter</option>
            <option value = "grayscale(100%" id = "Grayscale"> Grayscale</option>
@@ -28,27 +27,8 @@
         <button id = "clearButton" class = "allButs"> Clear</button>
         <canvas id = "canvas"></canvas>
     </div>
-    <div id = "upload">
-        <input id = "upload" type = "file" accept = "image/*"/>
-    </div>
     <div class = "bottom">
         <div id = "photos">
-            <form action = "" method = "POST">
-                <img id = "picture" src ="" style = "width:100%; max-width:300px">
-
-                <!-- The modal he said--> 
-                <div id = "themodal" class = "modal">
-                    <span class = "close" > &times; </span>
-                    <img class = "model-content" id = "img01">
-                    <div id = "caption"></div>
-                    <div>
-                        <a href = "./takepic.php">
-                        <button type = "submit">Cancel</button></a>
-                        <button type = "submit"> Save</button>
-                    <div>
-                </div>
-            </form>
-        </div>
     </div>
 
     <script>
@@ -66,6 +46,9 @@
         const clearbutton = document.getElementById('clearButton');
         const photoFilter = document.getElementById('photofilter');
 
+
+    
+
         //get media stream
         navigator.mediaDevices.getUserMedia({video:true, audio:false})
         .then (function(stream)
@@ -74,7 +57,7 @@
         video.srcObject = stream;
 
         //play video
-        //video.play();
+        video.play();
         })
         .catch(function(err)
         {
@@ -104,6 +87,7 @@
 
             e.preventDefault();
         }, false);
+
 
 
         //Filter event
@@ -145,54 +129,23 @@
             {
                 canvas.width = width;
                 canvas.height = height;
-
                 //Draw image of the video on canvas
                 context.drawImage(video, 0, 0, width, height);
-
+                //context.drawImage(overlay, 150, 0, 200, 200);
                 //create an image from canvas
                 const imgurl = canvas.toDataURL('image/png');
                 //console.log(imageurl);
-
                 //create image element
                 const img = document.createElement('img');
-
                 //set image src
                 img.setAttribute('src', imgurl);
-
+               
                 //set image filter
                 img.style.filter = filter;
-
                 //append image to photo
-                //photos.appendChild(img);
+                photos.appendChild(img);
 
-                var imageObj1 = new Image();
             }
-
-                var pictur = document.getElementById('picture');
-                var modal = document.getElementById('themodal');
-                var modalImage = document.getElementById("img01");
-                var caption = document.getElementById("caption");
-                
-                pictur.addEventListener('load', function()
-                {
-                    video.style.display = "none";
-                    modal.style.dispaly = "block";
-                    modalimage.src = this.src;
-                    caption.innerHTML = this.alt;
-                });
-
-                pictur = document.getElementById('picture').src = imageobj1.src;
-
-                //the span elemnt to close, get it
-                var span = document.getElementByClassName("close")[0];
-
-                //that cross to close when i click
-                span.onclick = function()
-                {
-                    window.location.replace('./takeapic.php');
-                    modal.style.display = "none";
-                }
-
         }
 
     </script>
