@@ -13,6 +13,12 @@
         const clearbutton = document.getElementById('clearButton');
         const photoFilter = document.getElementById('photofilter');
 
+        var none = document.getElementById('none');
+        var dog = document.getElementById('dogid');
+        var flower = document.getElementById('flowerid');
+
+
+
         //get media stream
         navigator.mediaDevices.getUserMedia({video:true, audio:false})
         .then (function(stream)
@@ -57,7 +63,6 @@
             filter = e.target.value;
             //set filter to video
             video.style.filter = filter;
-            
             e.preventDefault();
 
         });
@@ -84,6 +89,17 @@
             //create canvas
             const context = canvas.getContext('2d');
             var sticker = document.getElementById("photofilter");
+            var photosticker = new Image();
+
+            if (sticker.selectedIndex == "dog.png")
+            {
+                photosticker = document.getElementById('dogid');
+                alert("dog");
+            }
+            else if (sticker.selectedIndex == "flower.png")
+            {
+                photosticker = document.getElementById('flowerid');
+            }
 
             console.log("This is it " + sticker + '\n');
             console.log("This is it " + video + '\n');
@@ -108,14 +124,13 @@
 
                 imageobj1.onload = function() {
                     context.drawImage(imageobj1, 0, 0, width, height);
-                    imageobj2 = (sticker);
+                    imageobj2 = (photosticker);
                     imageobj2.onload = function() {
                         context.drawImage(imageobj2, 0, 0, width, height);
                         var img = context.toDataURL("image/png");
                     }
                 }
-
-               
+             
                 //set image filter
                 img.style.filter = filter;
                 //append image to photo

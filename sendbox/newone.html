@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <!--<link href="./form/main.css" rel="stylesheet">-->
+    <link href="./form/main.css" rel="stylesheet">
     <title>Take picture</title>
 </head>
 <body>
@@ -20,8 +20,8 @@
            <option value = "grayscale(100%" id = "Grayscale"> Grayscale</option>
            <option value = "blur(10px)" id = "blur"> blur</option>
            <option value = "contrast(200%)"> contrast</option>
-           <option value = "dog.png" name="dogsticker"> Cute dog</option>
-           <option value = "flower.png" name="flowersticker"> flowers</option>
+           <option value = "dog.png" name="dogsticker" id= "dogid"> Cute dog</option>
+           <option value = "flower.png" name="flowersticker" id = "flowerid"> flowers</option>
         </select>
         <button id = "clearButton" class = "allButs"> Clear</button>
         <!--<img id="dog" src="dog.png" alt="">-->
@@ -33,7 +33,16 @@
         <div id = "photos">
             <form action = "" method = "POST">
                 <img id = "picture" src ="" style = "width:100%; max-width:300px">
-                <button type = "submit">Share</button>
+                <div id="Modal" class="modal">
+                    <!-- <span class="close">&times;</span> -->
+                    <img class="modalcontent" id="img01">
+                    <div id="caption"></div>
+                    <div>
+                        <a href="./newone.html"><button type="submit">Cancel</button></a>
+                        <button type="submit">Save</button>
+                    </div>
+                </div>
+
             </form>
         </div>
 <script src="javascript.js"></script>
