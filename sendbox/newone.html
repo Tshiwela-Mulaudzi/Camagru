@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!--<link href="./form/main.css" rel="stylesheet">-->
+    <title>Take picture</title>
+</head>
+<body>
+    <div id = "logout"><a href = "http://127.0.0.1:8080/Camagru/index0.php">Log out</a></div>
+    <div class = "navbar">
+        <h2> Take a picture/ video</h2>
+    </div>
+    <div class = "top">
+        <video id = "video">Im not sure what this message is for...</video>
+        <button id = "photobutton" class  = "allButs" > Take picture </button>
+        <select id = "photofilter" name = "stickersOptions">
+           <option value = "none" id = "none"> No filter</option>
+           <option value = "grayscale(100%" id = "Grayscale"> Grayscale</option>
+           <option value = "blur(10px)" id = "blur"> blur</option>
+           <option value = "contrast(200%)"> contrast</option>
+           <option value = "dog.png" name="dogsticker"> Cute dog</option>
+           <option value = "flower.png" name="flowersticker"> flowers</option>
+        </select>
+        <button id = "clearButton" class = "allButs"> Clear</button>
+        <!--<img id="dog" src="dog.png" alt="">-->
+        <canvas id = "canvas"></canvas>
+    </div>
+   <!--<div id = "upload">
+        <input id = "upload" type = "file" accept = "image/*"/>
+    </div>-->
+        <div id = "photos">
+            <form action = "" method = "POST">
+                <img id = "picture" src ="" style = "width:100%; max-width:300px">
+                <button type = "submit">Share</button>
+            </form>
+        </div>
+<script src="javascript.js"></script>
+</body>
+</html>
