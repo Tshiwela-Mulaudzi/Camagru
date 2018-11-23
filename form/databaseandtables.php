@@ -45,6 +45,30 @@ try {
 catch(PDOException $e)
     {
     echo $sql . "<br>" . $e->getMessage();
-    }
+	}
+
+
+	// //table for uploading pictures
+	// try
+	// {
+	// 	//connecting to the created dtabase
+	// 	$conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
+
+	// 	// set the PDO error mode to exception
+	// 	$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+	// 	$sql = "CREATE TABLE $picturetable (
+	// 		userID INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY, 
+	// 		pictureid INT NOT NULL,
+	// 		FOREIGN KEY (userID) REFERENCES users(UserID),
+	// 		activated INT(1)
+	// 		)";
+	// 		$conn->exec($sql);
+	// 		echo "Gallery table created successfully<br>";
+	// }
+	// catch(PDOException $e)
+    // {
+    // echo "Failed to create gallery table<br>" . $e->getMessage();
+	// }
 	$conn = null;
 ?>
