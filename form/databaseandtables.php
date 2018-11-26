@@ -1,11 +1,6 @@
 <?php
 //connect to server
-$servername = "localhost";
-$username = "root";
-$password = "123456";
-$dbname = "camagru";
-$tablename = "users";
-	
+include('credentials.php');
 //create database	
 	try {
 		$conn = new PDO("mysql:host=$servername", $username, $password);
@@ -21,13 +16,15 @@ $tablename = "users";
 		echo $sql . "<br>" . $e->getMessage();
 		}
 
+
 // create table
+$conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
+
+// set the PDO error mode to exception
+$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 try {
 
-    $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
-
-	// set the PDO error mode to exception
-    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+   
 
     // sql to create table
     $sql = "CREATE TABLE $tablename (
@@ -49,26 +46,28 @@ catch(PDOException $e)
 
 
 	// //table for uploading pictures
-	// try
-	// {
-	// 	//connecting to the created dtabase
-	// 	$conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
+	try
+	{
+		//connecting to the created dtabase
+		//$conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
 
-	// 	// set the PDO error mode to exception
-	// 	$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+		// set the PDO error mode to exception
+		//$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-	// 	$sql = "CREATE TABLE $picturetable (
-	// 		userID INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY, 
-	// 		pictureid INT NOT NULL,
-	// 		FOREIGN KEY (userID) REFERENCES users(UserID),
-	// 		activated INT(1)
-	// 		)";
-	// 		$conn->exec($sql);
-	// 		echo "Gallery table created successfully<br>";
-	// }
-	// catch(PDOException $e)
-    // {
-    // echo "Failed to create gallery table<br>" . $e->getMessage();
-	// }
+		$sql = "CREATE TABLE $picturetable (
+			pictureID INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY, 
+			username VARCHAR(30) NOT NULL,
+			pic LONGTEXT NOT NULL,
+			likes INT(6) NULL,
+			comments VARCHAR(255) NULL
+			)";
+			$conn->exec($sql);
+			echo "Gallery table created successfully<br>";
+	}
+	catch(PDOException $e)
+    {
+    echo "<br>Failed to create gallery table<br>" . $e->getMessage();
+	}
+
 	$conn = null;
 ?>

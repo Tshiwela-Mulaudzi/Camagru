@@ -27,16 +27,21 @@
     <div class = "bottom">
         <div id = "photos">
          <form action = "./form/takepic.php" method = "POST">
-                <img id = "picture" src ="" style = "width:100%; max-width:300px">
-                <div id="Modal" class="modal">
+            <input type="hidden" name="nameoftheinput" id="idofinput">
+            <div>
+                    <button type="submit" name = "cancel" value = "cancel">Cancel</button>
+                    <button type="submit" name = "postpic" value = "postpic">Post</button>
+                </div>
+                <!-- <img id = "picture" name = "nameofpic" src ="" style = "width:100%; max-width:300px"> -->
+                <!-- <div id="Modal" class="modal">
                     <span class="close">&times;</span> 
                     <img class="modalcontent" id="img01">
                     <div id="caption"></div>
                     <div>
                         <button type="submit" name = "cancel" value = "cancel">Cancel</button>
-                        <button type="submit" name = "postpic">Post</button>
+                        <button type="submit" name = "postpic" value = "postpic">Post</button>
                     </div>
-                </div>
+                </div> -->
             </form>
     </div> 
 

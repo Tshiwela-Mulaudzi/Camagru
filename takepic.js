@@ -67,6 +67,7 @@
      //resety filter, back to none
      photofilter.selectedIndex = 0;
  });
+
   //take pic from canvas
  function takepicture()
  {
@@ -90,5 +91,10 @@
          img.style.filter = filter;
           //append image to photoID
          photos.appendChild(img);
+
+         var nameofthis = document.getElementById('idofinput').value = imgurl;
+         console.log("checker text");
+
+         console.log("Hi " + nameofthis);    
       }
  }
