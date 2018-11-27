@@ -30,6 +30,8 @@ else if (isset($_POST['postpic']))
 	        $populate->execute();
             echo "successfully uploaded<br>";
             //go to timeline page
+            header('Location: http://127.0.0.1:8080/Camagru/timeline.html');   
+
         }
         catch(PDOException $e)
         {

@@ -59,7 +59,8 @@ catch(PDOException $e)
 			username VARCHAR(30) NOT NULL,
 			pic LONGTEXT NOT NULL,
 			likes INT(6) NULL,
-			comments VARCHAR(255) NULL
+			comments VARCHAR(255) NULL,
+			CONSTRAINT dateposted NOT NULL DEFAULT (getdate())
 			)";
 			$conn->exec($sql);
 			echo "Gallery table created successfully<br>";
