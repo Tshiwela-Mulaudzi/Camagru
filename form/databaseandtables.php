@@ -43,24 +43,16 @@ catch(PDOException $e)
     {
     echo $sql . "<br>" . $e->getMessage();
 	}
-
-
 	// //table for uploading pictures
 	try
 	{
-		//connecting to the created dtabase
-		//$conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
-
-		// set the PDO error mode to exception
-		//$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
 		$sql = "CREATE TABLE $picturetable (
 			pictureID INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY, 
 			username VARCHAR(30) NOT NULL,
 			pic LONGTEXT NOT NULL,
 			likes INT(6) NULL,
 			comments VARCHAR(255) NULL,
-			CONSTRAINT dateposted NOT NULL DEFAULT (getdate())
+			dateposted DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP
 			)";
 			$conn->exec($sql);
 			echo "Gallery table created successfully<br>";
