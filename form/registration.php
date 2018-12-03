@@ -53,13 +53,14 @@ if (strcmp($pssword, $password2) == 0)
 	$subjectline = "Account registration";
 	$messagetext = "Hey there!
 
-	Thank you for registering with camagru.
+	Thank you for registering with camagru. Please activate your account by clicking the link below
+	http://127.0.0.1:8080/Camagru/form/activate.php 
+
 	Your may log in as:
 	Username : ".$login."
 	Password : ".$pssword."
 
 	Pleasen activate your acount here
-
 	Thank you
 	Camagru";
 
