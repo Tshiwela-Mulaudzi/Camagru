@@ -4,8 +4,9 @@
 	$populate->execute();
 	$results = $populate->fetchAll(PDO::FETCH_ASSOC);
 	$resultscounter = $populate->rowCount();
-
+    $row = $populate->fetch();
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -22,21 +23,45 @@
 <?php if ($resultscounter): ?>
 	<?php foreach($results as $key => $value): ?>
 		<div class="picture">
-			<img class = 'card-img-top' src ="<?= $value['pic']; ?>" alt = ''>
+			<img class = 'card-img-top' src ="<?= $value['pic']; ?>" alt = '' width = '450px'>
 			<!-- Likes form -->
-			<form action = 'likes.php' method = 'post'>
+			<form action = 'likes.php?pic_id=<?= $value['pictureID']; ?>' method = 'post'>
 				<div class = 'comment-block'>
 					<input type="hidden" name="pic-id" value="<?= $value['pictureID']; ?>">
 					<button type='submit' class='btn btn-outline-primary like' value='like' name='like'>Like</button>
+					<br/>					
+					<?php
+					$pic_id = $value['pictureID'];
+					$query = $conn->prepare("SELECT likes FROM gallery WHERE pictureID=:pic_id");
+					$query->bindParam(":pic_id",$pictureID,PDO::PARAM_STR);
+					$query->execute();
+					echo $value['likes']."  like(s)"; //maybe the total from database
+					 ?>
 				</div>
 			</form>
 			<!-- /Likes form -->
+			
 			<!-- Comments form -->
-			<form action = 'comments.php' method = 'post'>
+			<?php $id = $row['pictureID'];
+					//echo $id;
+			?>
+			<form action = 'comments.php?pic_id="<?= $value['pictureID']; ?>"' method = 'post'>
 				<div class = 'comment-block'>
-					<input type="hidden" name="pic-id" value="<?= $value['pictureID']; ?>">
-					<textarea class='txt_comment form-control' placeholder='Comment here..' rows='3' name="comment"></textarea>
-					<button type='submit' class='btn btn-outline-primary comments' value='send' name='send'>Comment</button>
+					<input type="hidden" name="pic-id" id="send
+					"  value=<?php $id ?>>
+					<input class='box' placeholder='Comment here..' name='comment' >
+					<input type='submit' class = "button" value='comment' name="send" >
+					<br/>
+					<?php 
+						$pic_id = $value['pictureID'];
+						$query = $conn->prepare("SELECT comment FROM comments WHERE pic_id=:pic_id");
+						$query->bindParam(":pic_id",$pic_id,PDO::PARAM_STR);
+						$query->execute();
+						while($row = $query->fetch(PDO::FETCH_ASSOC))
+						{
+							echo "<p>".$row['comment']."</p>";
+						}
+					?>
 				</div>
 			</form> 
 			<!-- /Comments form -->
@@ -47,5 +72,3 @@
 <?php endif; ?>
 </body>
 </html>
-
-
