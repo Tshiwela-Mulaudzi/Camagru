@@ -51,7 +51,7 @@ catch(PDOException $e)
 			username VARCHAR(30) NOT NULL,
 			pic LONGTEXT NOT NULL,
 			likes INT(6) NULL,
-			comments VARCHAR(255) NULL,
+			useremail VARCHAR(255) NULL,
 			dateposted DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP
 			)";
 			$conn->exec($sql);

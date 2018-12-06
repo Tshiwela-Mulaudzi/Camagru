@@ -24,13 +24,20 @@ else if (isset($_POST['postpic']))
         
         echo "here4?<br>";
 
+
+                // foreach ($_SESSION as $key=>$val)
+                //     echo $key." ".$val."<br/>";
+
+
             $populate->bindParam(":userID", $username);
             $populate->bindParam(":pic", $image);
             echo "5<br>";
-	        $populate->execute();
+	       // $populate->execute();
             echo "successfully uploaded<br>";
+            //print_r($_SESSION);
+           // echo '<pre>' . print_r($_SESSION, TRUE) . '</pre>';
             //go to timeline page
-           header('Location: http://127.0.0.1:8080/Camagru/form/timeline.php');   
+           //header('Location: http://127.0.0.1:8080/Camagru/form/timeline.php');   
 
         }
         catch(PDOException $e)
