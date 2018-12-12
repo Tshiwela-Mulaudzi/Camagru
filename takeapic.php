@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -22,9 +23,6 @@
         </select>
         <button id = "clearbutton" class = "allButs"> Clear</button>
         <canvas id = "canvas"> </canvas>
-    </div>
-    <div>
-        <input id = "upload" type ="file" accept="image/*">        
     </div>
     <div class = "bottom">
         <div id = "photos">

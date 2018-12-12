@@ -54,7 +54,7 @@ if (strcmp($pssword, $password2) == 0)
 	$messagetext = "Hey there!
 
 	Thank you for registering with camagru. Please activate your account by clicking the link below
-	http://127.0.0.1:8080/Camagru/form/activate.php 
+	http://127.0.0.1:8080/Camagru/form/activate.php?email=$email 
 
 	Your may log in as:
 	Username : ".$login."
@@ -68,7 +68,8 @@ if (strcmp($pssword, $password2) == 0)
 	mail($email, $subjectline, $messagetext, $head);
 
 	echo "Please activate your account by following steps on your email after registration";
-	header('Location: ../index0.php');
+	header('Location: http://127.0.0.1:8080/Camagru/activated.html');
+
 }
 else
 {

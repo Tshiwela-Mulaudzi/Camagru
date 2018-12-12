@@ -23,9 +23,6 @@ $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
 // set the PDO error mode to exception
 $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 try {
-
-   
-
     // sql to create table
     $sql = "CREATE TABLE $tablename (
     userID INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY, 
@@ -43,6 +40,7 @@ catch(PDOException $e)
     {
     echo $sql . "<br>" . $e->getMessage();
 	}
+
 	// //table for uploading pictures
 	try
 	{

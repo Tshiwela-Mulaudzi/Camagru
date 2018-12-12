@@ -1,10 +1,15 @@
-<?php include('credentials.php');
+<?php 
+session_start();
+include('credentials.php');
 
 	$populate = $conn->prepare("SELECT * FROM $picturetable"); 
 	$populate->execute();
 	$results = $populate->fetchAll(PDO::FETCH_ASSOC);
 	$resultscounter = $populate->rowCount();
-    $row = $populate->fetch();
+	$row = $populate->fetch();
+	///print_r($results);
+	echo "\n\n";
+	//echo $results[0]['useremail'];
 ?>
 
 <!DOCTYPE html>
@@ -23,7 +28,7 @@
 <?php if ($resultscounter): ?>
 	<?php foreach($results as $key => $value): ?>
 		<div class="picture">
-			<img class = 'card-img-top' src ="<?= $value['pic']; ?>" alt = '' width = '450px'>
+			<img class = 'card-img-top' name = "nameofinput" src ="<?= $value['pic']; ?>" alt = '' width = '450px'>
 			<!-- Likes form -->
 			<form action = 'likes.php?pic_id=<?= $value['pictureID']; ?>' method = 'post'>
 				<div class = 'comment-block'>
@@ -61,6 +66,22 @@
 						{
 							echo "<p>".$row['comment']."</p>";
 						}
+						$usernamefromsession = $_SESSION['sessionUsername'];
+						//send mail when someone comments
+						$subjectline = "New comment";
+						$messagetext = "Hey
+						$usernamefromsession left a comment on your picture.
+						
+Regards,
+Camagru";
+						$head = 'From registartion@camagru.co.za'."\n\r";
+						$email = $value['useremail'];
+						mail($email, $subjectline, $messagetext, $head);
+
+						//echo $results[0]['useremail'];
+						//print_r($results);
+						//echo $results[0]['useremail'];
+						//echo $value['useremail'];
 					?>
 				</div>
 			</form> 

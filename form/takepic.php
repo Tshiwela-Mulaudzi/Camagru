@@ -12,37 +12,23 @@ else if (isset($_POST['postpic']))
     $image = $_POST['nameoftheinput'];
     if (isset($image))
     {
-        $username = "Tshiwela";
+        $usernamefromsession = $_SESSION['sessionUsername'];
+        $emailfromsession = $_SESSION['sessionEmail'];
+        //$username = "Tshiwela";
         try
         {
-        echo "here3?<br>";
-       // $populate = $conn->prepare("INSERT INTO $picturetable (userID, pic)
-      //  VALUES (:userID, :pic)");
-
-      $populate = $conn->prepare ("INSERT INTO gallery (username, pic) 
-      VALUES (:userID, :pic)");
-        
-        echo "here4?<br>";
-
-
-                // foreach ($_SESSION as $key=>$val)
-                //     echo $key." ".$val."<br/>";
-
-
-            $populate->bindParam(":userID", $username);
-            $populate->bindParam(":pic", $image);
-            echo "5<br>";
-	       // $populate->execute();
-            echo "successfully uploaded<br>";
-            //print_r($_SESSION);
-           // echo '<pre>' . print_r($_SESSION, TRUE) . '</pre>';
-            //go to timeline page
-           //header('Location: http://127.0.0.1:8080/Camagru/form/timeline.php');   
-
+        $populate = $conn->prepare ("INSERT INTO gallery (username, pic, useremail) 
+        VALUES (:usernamefromsession, :pic, :emailfromsession )");
+        $populate->bindParam(":usernamefromsession", $usernamefromsession);
+        $populate->bindParam(":pic", $image);
+        $populate->bindParam(":emailfromsession", $emailfromsession);
+        echo "5<br>";
+	    $populate->execute();
+        echo "successfully uploaded<br>";
+        header('Location: http://127.0.0.1:8080/Camagru/form/timeline.php'); 
         }
         catch(PDOException $e)
         {
-            echo "6<br>";
             echo "Failed to post image".$e->getMessage() . "<br>";
         }
     }
