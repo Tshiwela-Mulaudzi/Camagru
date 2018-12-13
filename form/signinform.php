@@ -43,7 +43,7 @@ $result = $populate->fetch(PDO::FETCH_ASSOC);
     else 
     {
       //here should be wrong login pop up or notice
-        header('Location: ../index0.php');
+        header('Location: ../index.php');
         
         echo "Invalid login credentials";
        // echo "<script>setTimeout(\"Location: ../index0.php';\", 1500); </script>;

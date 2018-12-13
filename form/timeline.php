@@ -7,11 +7,7 @@ include('credentials.php');
 	$results = $populate->fetchAll(PDO::FETCH_ASSOC);
 	$resultscounter = $populate->rowCount();
 	$row = $populate->fetch();
-	///print_r($results);
-	echo "\n\n";
-	//echo $results[0]['useremail'];
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -20,7 +16,9 @@ include('credentials.php');
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<link href="./form/main.css" rel="stylesheet">
 	<title>Camagru</title>
-
+	<form action = '../logout.php' method = 'POST'>
+		<input class = "allButs" id = "logout" type = "Submit" value = "Logout">
+	</form>
 </head>
 <body>
 <h1>Camagru</h1>
@@ -77,11 +75,6 @@ Camagru";
 						$head = 'From registartion@camagru.co.za'."\n\r";
 						$email = $value['useremail'];
 						mail($email, $subjectline, $messagetext, $head);
-
-						//echo $results[0]['useremail'];
-						//print_r($results);
-						//echo $results[0]['useremail'];
-						//echo $value['useremail'];
 					?>
 				</div>
 			</form> 

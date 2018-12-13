@@ -21,7 +21,7 @@ if($stmt->rowCount())
     // echo "<h6>Success! Your account successfully activated!</h6>";
     echo "<script>alert('activated')</script>";
     //header("Refresh: 2; url=index0.php");
-	header('Location: http://127.0.0.1:8080/Camagru/index0.php');
+	header('Location: http://127.0.0.1:8080/Camagru/index.php');
     }
 else
 {

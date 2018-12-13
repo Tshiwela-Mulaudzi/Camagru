@@ -14,7 +14,6 @@ else if (isset($_POST['postpic']))
     {
         $usernamefromsession = $_SESSION['sessionUsername'];
         $emailfromsession = $_SESSION['sessionEmail'];
-        //$username = "Tshiwela";
         try
         {
         $populate = $conn->prepare ("INSERT INTO gallery (username, pic, useremail) 
@@ -22,7 +21,6 @@ else if (isset($_POST['postpic']))
         $populate->bindParam(":usernamefromsession", $usernamefromsession);
         $populate->bindParam(":pic", $image);
         $populate->bindParam(":emailfromsession", $emailfromsession);
-        echo "5<br>";
 	    $populate->execute();
         echo "successfully uploaded<br>";
         header('Location: http://127.0.0.1:8080/Camagru/form/timeline.php'); 
