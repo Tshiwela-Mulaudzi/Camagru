@@ -32,21 +32,27 @@ $result = $populate->fetch(PDO::FETCH_ASSOC);
    // echo $v;
 
     print_r($result);
-
-    if ($result['username'] === $login && $result['userPassword'] === $pssword) 
+    if ($result['activated'] == '1')
     {
+        if ($result['username'] === $login && $result['userPassword'] === $pssword) 
+        {
         $_SESSION['sessionUsername'] = $result['username'];
         $_SESSION['sessionEmail'] = $result['email'];
         // echo "right password<br>";
          header('Location: ../takeapic.html');
-    }
-    else 
-    {
+        }
+        else 
+        {
       //here should be wrong login pop up or notice
         header('Location: ../index.php');
         
         echo "Invalid login credentials";
        // echo "<script>setTimeout(\"Location: ../index0.php';\", 1500); </script>;
+        }
+    }
+    else
+    {
+        header('Location: http://127.0.0.1:8080/Camagru/activated.html');
     }
 }
 }

@@ -29,7 +29,8 @@ try {
     username VARCHAR(30) NOT NULL,
     email VARCHAR(30) NOT NULL,
 	userPassword VARCHAR(56),  
-	activated INT(1)
+	activated INT(1),
+	hashedpass VARCHAR(255) NOT NULL
     )";
 
     // use exec() because no results are returned
