@@ -14,6 +14,7 @@ else if (isset($_POST['postpic']))
     {
         $usernamefromsession = $_SESSION['sessionUsername'];
         $emailfromsession = $_SESSION['sessionEmail'];
+        
         try
         {
         $populate = $conn->prepare ("INSERT INTO gallery (username, pic, useremail) 

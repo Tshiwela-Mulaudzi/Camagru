@@ -15,6 +15,7 @@ include('credentials.php');
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<link href="./form/main.css" rel="stylesheet">
+    <a href="http://127.0.0.1:8080/Camagru/updatepage.php">Update profile</a>
 	<title>Camagru</title>
 	<form action = '../logout.php' method = 'POST'>
 		<input class = "allButs" id = "logout" type = "Submit" value = "Logout">

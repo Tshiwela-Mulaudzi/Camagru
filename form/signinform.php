@@ -38,6 +38,7 @@ $result = $populate->fetch(PDO::FETCH_ASSOC);
         {
         $_SESSION['sessionUsername'] = $result['username'];
         $_SESSION['sessionEmail'] = $result['email'];
+        $_SESSION['sessionID'] = $result['userID'];
         // echo "right password<br>";
          header('Location: ../takeapic.html');
         }

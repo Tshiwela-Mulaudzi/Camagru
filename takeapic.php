@@ -7,6 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link href="./form/main.css" rel="stylesheet">
     <title>Take picture</title>
+    <a href="http://127.0.0.1:8080/Camagru/updatepage.php">Update profile</a>
     <form action = '../logout.php' method = 'POST'>
 		<input class = "allButs" id = "logout" type = "Submit" value = "Logout">
 	</form>
