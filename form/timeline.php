@@ -25,8 +25,9 @@ include('credentials.php');
 <h1>Camagru</h1>
 
 <?php if ($resultscounter): ?>
-	<?php foreach($results as $key => $value): ?>
+	<?php foreach($results as $key => $value):?>
 		<div class="picture">
+		<?php echo $value['username']."<br>"; ?>
 			<img class = 'card-img-top' name = "nameofinput" src ="<?= $value['pic']; ?>" alt = '' width = '450px'>
 			<!-- Likes form -->
 			<form action = 'likes.php?pic_id=<?= $value['pictureID']; ?>' method = 'post'>
@@ -61,11 +62,18 @@ include('credentials.php');
 						$query = $conn->prepare("SELECT comment FROM comments WHERE pic_id=:pic_id");
 						$query->bindParam(":pic_id",$pic_id,PDO::PARAM_STR);
 						$query->execute();
+						
+						$usernamefromsession = $_SESSION['sessionUsername'];
+						$sendemailnotifications = $_SESSION['sessionNot'];
 						while($row = $query->fetch(PDO::FETCH_ASSOC))
 						{
 							echo "<p>".$row['comment']."</p>";
 						}
-						$usernamefromsession = $_SESSION['sessionUsername'];
+
+						
+						if ($sendemailnotifications != '1')
+						{
+						
 						//send mail when someone comments
 						$subjectline = "New comment";
 						$messagetext = "Hey
@@ -76,6 +84,7 @@ Camagru";
 						$head = 'From registartion@camagru.co.za'."\n\r";
 						$email = $value['useremail'];
 						mail($email, $subjectline, $messagetext, $head);
+						}
 					?>
 				</div>
 			</form> 

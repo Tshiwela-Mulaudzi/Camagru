@@ -36,6 +36,19 @@ if ($IDfromsession)
             $populate->bindParam(':newmail', $newmail);
             $populate->execute();
         }
+        if (isset($_POST['emailnot']))
+        {
+            $populate = $conn ->prepare("UPDATE $tablename SET sendmail ='1' WHERE userID = :IDfromsession");
+            $populate->bindParam(':IDfromsession', $IDfromsession);
+            $populate->execute();
+        }
+        if (isset($_POST['delete']))
+        {
+            $populate = $conn ->prepare("DELETE FROM $tablename WHERE userID = :IDfromsession");
+            $populate->bindParam(':IDfromsession', $IDfromsession);
+            $populate->execute();
+            header('Location: http://127.0.0.1:8080/Camagru/signup.php'); 
+        }
         header('Location: http://127.0.0.1:8080/Camagru/'); 
 
 }

@@ -30,6 +30,7 @@ try {
     email VARCHAR(30) NOT NULL,
 	userPassword VARCHAR(56),  
 	activated INT(1),
+	sendmail INT(1),
 	hashedpass VARCHAR(255) NOT NULL
     )";
 
