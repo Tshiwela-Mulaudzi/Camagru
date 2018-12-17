@@ -11,9 +11,10 @@ try
 
     $result = $populate->fetch(PDO::FETCH_ASSOC); 
     print_r($result);
-    if ($result['activated'] == '1')
+
+    if ($result['username'] === $login && $result['userPassword'] === $pssword) 
     {
-        if ($result['username'] === $login && $result['userPassword'] === $pssword) 
+        if ($result['activated'] == '1')
         {
             $_SESSION['sessionUsername'] = $result['username'];
             $_SESSION['sessionEmail'] = $result['email'];
@@ -23,12 +24,12 @@ try
         }
         else 
         {
-            header('Location: ../index.php');
+            header('Location: http://127.0.0.1:8080/Camagru/activated.html');
         }
     }
     else
     {
-        header('Location: http://127.0.0.1:8080/Camagru/activated.html');
+        header('Location: ../index.php');        
     }
 }
 

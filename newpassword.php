@@ -7,11 +7,11 @@ $email = $_GET['email'];
     <meta name = "viewpoint" content = "width = device-width, initial-scale = 1.0">
     <meta name = "viewpoint" content = "height = device-height, initial-scale = 1.0">
 	<title> Camagru | New Password </title>
-	<link href="./form/main.css" rel="stylesheet">
+	<link href="./config/main.css" rel="stylesheet">
 </head>
 <body>
 <div>
-	<form class="form" id="newpassword" action="form/newpassword.php" method="POST">
+	<form class="form" id="newpassword" action="config/newpassword.php" method="POST">
 	<?php
 		echo "<input type = 'hidden' class='inp' type='password' id='email' name='email' value = '$email'> " ?>
 		<input class="inp" type="password" id="oldpass" name="oldpass" placeholder="Type Password">

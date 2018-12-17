@@ -8,12 +8,12 @@ $usernamefromsession = $_SESSION['sessionUsername'];
     <meta name = "viewport" content = "width = device-width, initial-scale = 1.0">
     <meta name = "viewport" content = "height = device-height, initial-scale = 1.0">
     <title> Camagru | Update </title>
-    <link href="./form/main.css" rel="stylesheet">
+    <link href="./config/main.css" rel="stylesheet">
     <h3>Please note that after updating your profile, you will be requested to log in again.</h3>
 </head>
 <body>
 <div>
-	<form class="form" id="signup" action="./form/update.php" method="POST" >
+	<form class="form" id="signup" action="./config/update.php" method="POST" >
     <div class="notice"></div>
         <h2><input class="inp" type="text" id="username" name="username" placeholder="Username"></h2>
 	    <h2><input class="inp" type="email" id="email" name="email" placeholder="E-Mail address"></h2><br>

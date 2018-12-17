@@ -1,4 +1,4 @@
-<?php 
+<?php
 session_start();
 include('setup.php');
 
@@ -14,7 +14,7 @@ include('setup.php');
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
-	<link href="./form/main.css" rel="stylesheet">
+	<link href="./config/main.css" rel="stylesheet">
     <a href="http://127.0.0.1:8080/Camagru/updatepage.php">Update profile</a>
 	<title>Camagru</title>
 	<form action = '../logout.php' method = 'POST'>
@@ -55,7 +55,7 @@ include('setup.php');
 					<input type="hidden" name="pic-id" id="send
 					"  value=<?php $id ?>>
 					<input class='box' placeholder='Comment here..' name='comment' >
-					<input type='submit' class = "button" value='comment' name="send" >
+					<input type='submit' class = "button" value='comment' name="sendcomment" >
 					<br/>
 					<?php 
 						$pic_id = $value['pictureID'];

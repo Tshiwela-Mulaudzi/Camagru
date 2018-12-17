@@ -4,11 +4,11 @@
     <meta name = "viewport" content = "width = device-width, initial-scale = 1.0">
     <meta name = "viewport" content = "height = device-height, initial-scale = 1.0">
     <title> Camagru | Log in </title>
-    <link href="./form/main.css" rel="stylesheet">
+    <link href="./config/main.css" rel="stylesheet">
 </head>
 <body>
 <div>
-    <form class="form" id="login" action="./form/signinform.php" method="POST" >
+    <form class="form" id="login" action="./config/signinform.php" method="POST" >
     <div class="notice">		
 		</div>
         <input class="inp" type="text" id="username" name="username" placeholder="Username" required><br><br>

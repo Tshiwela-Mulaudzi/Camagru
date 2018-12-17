@@ -4,11 +4,11 @@
     <meta name = "viewport" content = "width = device-width, initial-scale = 1.0">
     <meta name = "viewport" content = "height = device-height, initial-scale = 1.0">
     <title> Camagru | Registartion </title>
-    <link href="./form/main.css" rel="stylesheet">
+    <link href="./config/main.css" rel="stylesheet">
 </head>
 <body>
 <div>
-	<form class="form" id="signup" action="./form/registration.php" method="POST" >
+	<form class="form" id="signup" action="./config/registration.php" method="POST" >
     <div class="notice">
 				
 			</div>
