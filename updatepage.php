@@ -21,7 +21,7 @@ $usernamefromsession = $_SESSION['sessionUsername'];
         <p>By ticking the email box, you are saying you would like us to stop sending you comments' emails.</p>
         <input type="checkbox" name="emailnot" value="emailnot"> Emails?<br><br>
         <h4>Below you can edit if you would like to delete your account, permanently.</h4>
-        <p>Please be sure, be sure again. There is no getting your account back after this yoo.</p>
+        <p>Please be sure, be sure again. There is no getting your account back after this.</p>
         <input type="checkbox" name="delete" value="delete"> Delete account?<br><br><br>
         <input class = "allButs" id = "update" type = "Submit" value = "update">
     </form>

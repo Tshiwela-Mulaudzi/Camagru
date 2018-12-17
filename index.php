@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,15 +11,14 @@
     <form class="form" id="login" action="./form/signinform.php" method="POST" >
     <div class="notice">		
 		</div>
-        <input class="inp" type="text" id="username" name="username" placeholder="Username" required>
-	    <input class="inp" type="password" id="password" name="password" placeholder="Password"required>
+        <input class="inp" type="text" id="username" name="username" placeholder="Username" required><br><br>
+	    <input class="inp" type="password" id="password" name="password" placeholder="Password"required><br>
         </div>
-        <input class = "allButs" id = "registration" type = "Submit" value = "Log in">
-        <a href="http://127.0.0.1:8080/Camagru/reset.html">Forgot Password</a>
+        <input class = "allButs" id = "registration" type = "Submit" value = "Log in"><br><br>
+        <a href="http://127.0.0.1:8080/Camagru/reset.html">Forgot Password</a><br><br>
+    <a href = "http://127.0.0.1:8080/Camagru/signup.php">Dont have an account? Register here</a>
+
     </form>
 </div>
-<script>
-//check stuff
-</script>
 </body>
 </html>

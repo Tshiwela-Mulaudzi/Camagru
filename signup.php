@@ -16,14 +16,8 @@
 	    <h2><input class="inp" type="email" id="email" name="email" placeholder="E-Mail address" required></h2>
 	    <h2><input class="inp" type="password" id="password" name="password" placeholder="Password"required></h2>
 	    <h2><input class="inp" type="password" id="password2" name="password2" placeholder="Confirm Password" required></h2>
-        <div id = "Password_checker">
-            <!-- well -->
-        </div>
         <input class = "allButs" id = "registration" type = "Submit" value = "Register">
     </form>
 </div>
-<script>
-//check stuff
-</script>
 </body>
 </html>

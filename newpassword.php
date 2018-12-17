@@ -1,7 +1,5 @@
 <?php
 $email = $_GET['email'];
-
-echo $email;
 ?>
 <!DOCTYPE html>
 <html>

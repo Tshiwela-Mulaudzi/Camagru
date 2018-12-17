@@ -1,0 +1,157 @@
+.body
+{
+    font-family: comic sans-serif;
+    background-attachment: fixed;
+	background-image			:url(../images/image0.jpeg);
+    background-repeat: repeat;
+    padding : none;
+    margin : 0;
+}
+
+/* .form
+{
+    display: block;
+    width: 200px;
+    border : solid 0.5 rgba(7, 7, 7, 0.23);
+    border-radius: 20px;
+    padding : 2px;
+    background-color: rgba(7, 7, 7, 0.5);
+    margin : auto;
+    box-shadow: lightsteelblue;
+} */
+
+.input
+{
+    border-radius				: 12px;
+	margin						: auto;
+	border						: none;
+	border-bottom				: 2px black solid;
+	background-color			: rgba(255,255,255, 0.6);
+	width						: 200px; 
+	font-size					: 16px;
+	font-family					: "comic sans-serif";
+	padding						: 10px;
+
+}
+
+input[placeholder]
+{
+	text-align					: center;
+}
+
+/*#login:hover, #registration:hover
+{
+	color				: plum;
+	background-color	: rgba(7,7,7, 0.4);
+}*/
+
+.allButs
+{
+	width: 124px;
+	height: 25px;
+	font-size: 18px;
+	border-radius: 8px;
+	text-align: center;
+	font-family: "geosans";
+	background-color: rgba(255,255,255, 0.6);
+	border: solid 0.5px rgba(7,7,7, 1);
+    outline:none;
+    text-decoration: none;
+    color: purple;
+    list-style: none;
+    cursor: default;
+    margin-left: 38px;
+    margin-bottom: 30px;
+    margin-right: auto;
+}
+
+#login
+{
+	margin-left: 38px;
+	margin-bottom: 30px;
+}
+
+#logout
+{
+    position: absolute;
+	top: 4%;
+	right: 2%;
+	text-align: center;
+	text-decoration: none;
+	color: black;
+	cursor: default;
+	font-family: "geosans";
+	color:dodgerblue;
+}
+
+#capture
+{
+	font-size: 16px;
+}
+
+.pic
+{
+	margin: none;
+	object-fit: contain;
+	display: inline;
+}
+
+#canvas
+{
+	display: none;
+}
+
+.themodal 
+{
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
+}
+
+/* Modal Content (image) */
+.modal-content {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+}
+
+/* Caption of Modal Image */
+#caption {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+    text-align: center;
+    color: #ccc;
+    padding: 10px 0;
+    height: 150px;
+}
+
+/* Add Animation */
+.modal-content, #caption {    
+    -webkit-animation-name: zoom;
+    -webkit-animation-duration: 0.6s;
+    animation-name: zoom;
+    animation-duration: 0.6s;
+}
+
+#picture {
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+#picture:hover {opacity: 0.7;}
+
+
+
+

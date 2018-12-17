@@ -38,7 +38,6 @@
                 </div>
             </form>
     </div> 
-
      <script src = "takepic.js"></script>
 </body>
 </html> 
