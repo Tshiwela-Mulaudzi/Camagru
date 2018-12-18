@@ -64,11 +64,10 @@ try
 		if (strcmp($pssword, $password2) == 0)
 		{
 			$hashedpass = hash('whirlpool',($password2));
-			$populate = $conn->prepare("INSERT INTO $tablename (username, email, userPassword, activated, hashedpass)
+			$populate = $conn->prepare("INSERT INTO $tablename (username, email, activated, hashedpass)
 											VALUES(:username, :email, :pssword, :activated, :hashedpass)");
 			$populate->bindParam(":username", $login);
 			$populate->bindParam(":email", $email);
-			$populate->bindParam(":pssword", $pssword);
 			$populate->bindParam(":activated", $activated);
 			$populate->bindParam(":hashedpass", $hashedpass);
 			$populate->execute();

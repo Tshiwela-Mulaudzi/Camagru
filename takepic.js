@@ -10,6 +10,9 @@
  const photobutton = document.getElementById('photobutton');
  const clearbutton = document.getElementById('clearbutton');
  const photofilter = document.getElementById('photofilter');
+ const postpicform = document.getElementById('postpicform');
+
+ postpicform.style.dispay = 'none';
   //get media stream
  navigator.mediaDevices.getUserMedia({video:true, audio:false})
  .then (function(stream)
@@ -34,7 +37,7 @@
          video.setAttribute('height', height);
          canvas.setAttribute('width', width);
          canvas.setAttribute('height', height);
-          streaming = true;
+        streaming = true;
      }
  }, false);
  
@@ -43,6 +46,7 @@
  {
      takepicture();
       e.preventDefault();
+      postpicform.style.dispay = '';
  }, false);
   //Filter event
  photofilter.addEventListener('change', function(e)

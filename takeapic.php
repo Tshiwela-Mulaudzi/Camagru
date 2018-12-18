@@ -30,13 +30,13 @@
     </div>
     <div class = "bottom">
         <div id = "photos">
-         <form action = "./config/takepic.php" method = "POST">
+         <form action = "./config/takepic.php" id = "postpicform" method = "POST">
             <input type="hidden" name="nameoftheinput" id="idofinput">
             <div>
-                    <button type="submit" name = "cancel" value = "cancel">Cancel</button>
-                    <button type="submit" name = "postpic" value = "postpic">Post</button>
-                </div>
-            </form>
+                <button type="submit" name = "cancel" value = "cancel" disabled >Cancel</button>
+                <button type="submit" name = "postpic" value = "postpic" disabled >Post</button>
+            </div>
+        </form>
     </div> 
      <script src = "takepic.js"></script>
 </body>

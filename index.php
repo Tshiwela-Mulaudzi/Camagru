@@ -5,6 +5,7 @@
     <meta name = "viewport" content = "height = device-height, initial-scale = 1.0">
     <title> Camagru | Log in </title>
     <link href="./config/main.css" rel="stylesheet">
+    <a href="http://127.0.0.1:8080/Camagru/config/timeline.php">Gallery</a><br><br>       
 </head>
 <body>
 <div>

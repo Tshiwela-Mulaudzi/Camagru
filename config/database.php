@@ -29,7 +29,6 @@ try {
     userID INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY, 
     username VARCHAR(30) NOT NULL,
     email VARCHAR(30) NOT NULL,
-	userPassword VARCHAR(56),  
 	activated INT(1),
 	sendmail INT(1),
 	hashedpass VARCHAR(255) NOT NULL

@@ -1,5 +1,7 @@
 <?php
 session_start();
+$usernamefromsession = $_SESSION['sessionUsername'];
+$sendemailnotifications = $_SESSION['sessionNot'];
 include('setup.php');
 
 	$populate = $conn->prepare("SELECT * FROM $picturetable"); 
@@ -15,11 +17,18 @@ include('setup.php');
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<link href="./config/main.css" rel="stylesheet">
-    <a href="http://127.0.0.1:8080/Camagru/updatepage.php">Update profile</a>
 	<title>Camagru</title>
+	<?php
+	if ($usernamefromsession)
+	{
+	?>
+    <a href="http://127.0.0.1:8080/Camagru/updatepage.php">Update profile</a>
 	<form action = '../logout.php' method = 'POST'>
 		<input class = "allButs" id = "logout" type = "Submit" value = "Logout">
 	</form>
+	<?php
+	}
+	?>
 </head>
 <body>
 <h1>Camagru</h1>
@@ -30,6 +39,10 @@ include('setup.php');
 		<?php echo $value['username']."<br>"; ?>
 			<img class = 'card-img-top' name = "nameofinput" src ="<?= $value['pic']; ?>" alt = '' width = '450px'>
 			<!-- Likes form -->
+			<?php
+			if ($usernamefromsession)
+			{
+			?>
 			<form action = 'likes.php?pic_id=<?= $value['pictureID']; ?>' method = 'post'>
 				<div class = 'comment-block'>
 					<input type="hidden" name="pic-id" value="<?= $value['pictureID']; ?>">
@@ -66,7 +79,8 @@ include('setup.php');
 						$sendemailnotifications = $_SESSION['sessionNot'];
 						while($row = $query->fetch(PDO::FETCH_ASSOC))
 						{
-							echo "<p>".$row['comment']."</p>";
+							//echo "<p>".$row['comment']."</p>"; 
+							echo "<div class='comments'>".htmlspecialchars($row['comment'], ENT_QUOTES)."</div>";
 						}
 						if ($sendemailnotifications != '1')
 						{
@@ -97,6 +111,7 @@ Camagru";
 				</div>
 			</form>
 			<?php
+			}
 			}
 			?>
 		</div>
