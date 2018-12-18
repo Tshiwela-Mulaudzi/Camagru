@@ -4,15 +4,18 @@ try
 {
     $login = $_POST['username'];
     $pssword = $_POST['password'];
-    $populate = $conn->prepare("SELECT * FROM $tablename WHERE username = :username AND userPassword = :pssword");
+    $hsh = hash('whirlpool',(rand()));
+	$hashedpass = hash('whirlpool',($pssword));
+
+    $populate = $conn->prepare("SELECT * FROM $tablename WHERE username = :username AND hashedpass = :hashedpass");
     $populate->bindParam(":username", $login);
-    $populate->bindParam(":pssword", $pssword);
+    $populate->bindParam(":hashedpass", $hashedpass);
     $populate->execute();
 
     $result = $populate->fetch(PDO::FETCH_ASSOC); 
     print_r($result);
 
-    if ($result['username'] === $login && $result['userPassword'] === $pssword) 
+    if ($result['username'] === $login && $result['hashedpass'] === $hashedpass) 
     {
         if ($result['activated'] == '1')
         {

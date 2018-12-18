@@ -10,9 +10,7 @@
  const photobutton = document.getElementById('photobutton');
  const clearbutton = document.getElementById('clearbutton');
  const photofilter = document.getElementById('photofilter');
- const postpicform = document.getElementById('postpicform');
 
- postpicform.style.dispay = 'none';
   //get media stream
  navigator.mediaDevices.getUserMedia({video:true, audio:false})
  .then (function(stream)
@@ -46,7 +44,6 @@
  {
      takepicture();
       e.preventDefault();
-      postpicform.style.dispay = '';
  }, false);
   //Filter event
  photofilter.addEventListener('change', function(e)

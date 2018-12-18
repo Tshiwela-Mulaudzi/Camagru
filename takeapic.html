@@ -1,3 +1,8 @@
+<?php
+$usernamefromsession = $_SESSION['sessionUsername'];
+if ($usernamefromsession)
+{
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -42,4 +47,11 @@
     </div> 
      <script src = "takepic.js"></script>
 </body>
-</html> 
+</html>
+<?php
+}
+else
+{
+header('Location: ../index.php');        
+}
+?>

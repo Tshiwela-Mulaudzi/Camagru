@@ -65,7 +65,7 @@ try
 		{
 			$hashedpass = hash('whirlpool',($password2));
 			$populate = $conn->prepare("INSERT INTO $tablename (username, email, activated, hashedpass)
-											VALUES(:username, :email, :pssword, :activated, :hashedpass)");
+											VALUES(:username, :email, :activated, :hashedpass)");
 			$populate->bindParam(":username", $login);
 			$populate->bindParam(":email", $email);
 			$populate->bindParam(":activated", $activated);
@@ -97,7 +97,7 @@ try
 	}
 	else
 	{
-		print_r($error);
+		header('Location: http://127.0.0.1:8080/Camagru/signup.php');
 	}
 }
 

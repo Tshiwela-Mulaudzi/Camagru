@@ -16,6 +16,6 @@ try
 }
 catch(PDOException $e)
 {
-	echo "Failed to post image".$e->getMessage() . "<br>";
+	echo "".$e->getMessage() . "<br>";
 }
 ?>

@@ -2,16 +2,24 @@
 include('setup.php');
 $email = $_POST['email'];
 $error = [];
+$hsh = hash('whirlpool',(rand()));
+
 if ($email)
 {
     $populate = $conn->prepare("SELECT * FROM users WHERE email =:email"); 
     $populate->bindParam(":email", $email);
     $populate->execute();
     $results = $populate->fetchAll(PDO::FETCH_ASSOC);
+    if (count($results) <= 0)
+    {
+        header('Location: http://127.0.0.1:8080/Camagru/index.php');
+    }
     $Found_username = $results[0]['email'];
     
     $firstpass = $_POST['oldpass'];
     $userPassword = $_POST['newpass'];
+	$hashedpass = hash('whirlpool',($userPassword));
+
 
     function isSecurePassword($userPassword)
     {
@@ -40,9 +48,9 @@ if ($email)
         {
             if ($results[0]['activated'] == '1')
             {
-                $populate = $conn->prepare("UPDATE $tablename  SET userPassword = :userPassword WHERE email =:email");
+                $populate = $conn->prepare("UPDATE $tablename  SET hashedpass = :hashedpass WHERE email =:email");
                 $populate->bindParam(":email", $email);                   
-	            $populate->bindParam(":userPassword", $userPassword);
+	            $populate->bindParam(":hashedpass", $hashedpass);
                 $populate->execute();
 	            header('Location: http://127.0.0.1:8080/Camagru/index.php');
             }
